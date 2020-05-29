@@ -46,11 +46,11 @@ if (request.getParameter("hidPayIDDelete") != null) {
 <meta charset="ISO-8859-1">
 <title>Payment Management</title>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
-<script src="Components/jquery-3.2.1.min.js"></script>
+<script src="Components/jquery-3.4.1.min.js"></script>
 <script src="Components/payment.js"></script>
 
 </head>
-<body >
+<body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-2"></div>
@@ -59,8 +59,8 @@ if (request.getParameter("hidPayIDDelete") != null) {
 
 				<h1>Payment Mgt System</h1>
 
-				<form id="formPayment" name="formPayment" action="payment.jsp"
-					method="post">
+				<form id="formPayment" name="formPayment" action="payment.jsp" method="post">
+				<!-- name="formPayment" action="payment.jsp" method="post" --> 
 					Type:<input placeholder="Enter Card Type.Ex:VISA" type="text"
 						id="payType" name="payType" class="form-control"><br>
 					Amount:<input placeholder="Enter Amount of Pay" type="text"
@@ -71,20 +71,50 @@ if (request.getParameter("hidPayIDDelete") != null) {
 						name="payEmail" class="form-control"><br>
 					Description:<input placeholder="Write down anything" type="text"
 						id="payDesc" name="payDesc" class="form-control"><br>
-					<input type="submit" id="btnSave" name="btnSubmit" value="Save"
-						class="btn btn-primary"> <input type="hidden"
-						id="hidPayIDSave" name="hidPayIDSave" value="">
+						
+				<div id="alertSuccess" class="alert alert-success">
+				
+				
+				</div>   
+				<div id="alertError" class="alert alert-danger"></div>
+						
+					<input type=button id="btnSave" name="btnSubmit" value="Save"
+						class="btn btn-primary">
+						 <input type="hidden" id="hidPayIDSave" name="hidPayIDSave" value="">
 				</form>
-
+				
+				
 				<br>
+				
+			
+				<%-- <table border="1">
+<tr>
+<th>Item Code</th>
+<th>Item Name</th>
+<th>Item Price</th>
+<th>Item Desc</th>
+<th>Update</th>
+<th>Remove</th>
 
+</tr>
+
+<tr>
+<td><% out.print(session.getAttribute("itemCode")); %></td>
+<td><% out.print(session.getAttribute("itemName")); %></td>
+<td><% out.print(session.getAttribute("itemPrice")); %></td>
+<td><% out.print(session.getAttribute("itemDesc")); %></td>
+<td><input type="button" name="btnUpdate" value="Update"></td>
+<td><input type="button" name="btnDelete" value="Delete"></td>
+</tr>
+
+</table> --%>
 
 				<div class="alert alert-success">
-					<%
+					 <%
 						out.print(session.getAttribute("statusMsg"));
-					%>
+					%> 
 
-				</div>
+				</div> 
 
 				<br>
 				<%
